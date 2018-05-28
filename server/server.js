@@ -10,6 +10,14 @@ let server=http.createServer(app);
 let io=socketIO(server);
 io.on('connection',(socket)=>{
      console.log('New user connected');
+     socket.emit('newMessage',{
+         "from":"john",
+         "message":"Welcome to chat app",
+         "createdAt":1234
+     })
+     socket.on('createMessage',(message)=>{
+         console.log('create message',message);
+     })
      socket.on('disconnect',()=>{
          console.log('User was disconnected');
      })
