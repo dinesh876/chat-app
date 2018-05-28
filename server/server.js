@@ -17,10 +17,23 @@ io.on('connection',(socket)=>{
              text:message.text,
              createdAt:new Date().getTime()
          })
-     })
+        })
+        //Welcome message from the admin to the individual user
+        socket.emit('newMessage',{
+            from:"Admin",
+            text:"Welcome to the chat app",
+            createdAt:new Date().getTime()
+        })
+        //broadcast to the all the user when the new user join the conversion
+        socket.broadcast.emit('newMessage',{
+            from:"Admin",
+            text:"New user joined",
+            createdAt:new Date().getTime()
+        })
+    //Welcome message from the admin to the individual user
      socket.on('disconnect',()=>{
          console.log('User was disconnected');
-     })
+     });
 });
 app.use(express.static(publicPath));
 server.listen(port,()=>{
