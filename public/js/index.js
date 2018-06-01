@@ -28,7 +28,7 @@ jQuery("#message-form").on("submit",function(e){
     },function(data){
         console.log("Got it ", data);
     })
-    jQuery('[name=message]').val()="";
+    $('[name=message]').val("");
 });
 locationButton.on('click',function(){
     if(!navigator.geolocation){
