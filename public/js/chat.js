@@ -58,10 +58,9 @@ socket.on('updateUserList',function(users){
 jQuery("#message-form").on("submit",function(e){
     e.preventDefault();
     socket.emit('createMessage',{
-        from:'user',
         text:jQuery('[name=message]').val()
     },function(data){
-        console.log("Got it ", data);
+        text:jQuery('[name=message]').val()        
     })
     $('[name=message]').val("");
 });

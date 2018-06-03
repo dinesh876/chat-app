@@ -1,20 +1,3 @@
-/*var users=[];
-var addUser=(id,name,room)=>{
-    users.push({});
-}
-module.export={addUser};*/
-/*class Person{
-  constructor(name,age){
-     this.name=name;
-     this.age=age;
-   }
-   getUserDescription(){
-       return `${this.name} is ${this.age} years old`;
-   }
-}
-var me=new Person('Dinesh',20);
-var description=me.getUserDescription();
-console.log(description);*/
 class Users{
     constructor(){
         this.users=[];
