@@ -22,8 +22,6 @@ socket.on('connect',function(){
           console.log('No error');
        }
     });
-     //console.log('connected to server');
-
 });
 socket.on('newMessage',function(message){
     var formattedTime=moment(message.createdAt).format('hh:mm a');
@@ -49,6 +47,13 @@ socket.on('newLocationMessage',function(message){
 });
 socket.on('disconnect',function(){
     console.log("server went down!!!");
+});
+socket.on('updateUserList',function(users){
+    var ol=jQuery('<ol></ol>');
+    users.forEach(function(user){
+        ol.append(jQuery('<li></li>').text(user));
+    });
+    jQuery('#users').html(ol);
 });
 jQuery("#message-form").on("submit",function(e){
     e.preventDefault();
